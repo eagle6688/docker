@@ -1,9 +1,13 @@
 FROM eagle6688/tomcat
 LABEL author=Aldwin
 
-ENV WebsiteWarFile="devutility.test.springmvc.war" \
-    WebsitePath=/home/website
+ENV War_File=devutility.test.springmvc.war \
+    Website_Root=/home/website/ \
+    JAVA_HOME=/usr/local/java \
+    PATH=$PATH:$JAVA_HOME/bin
 
-COPY $WebsiteWarFile ./
+ADD $War_File $Website_Root
 
-RUN mv -f $WebsiteWarFile $WebsitePath
+RUN cd $Website_Root \
+    && jar -xvf $War_File \
+    && rm -rf $War_File
