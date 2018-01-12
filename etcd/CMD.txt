@@ -1,0 +1,13 @@
+docker run \
+  -d \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  -p 4001:4001 \
+  -p 7001:7001 \
+  -v /var/data/etcd:/data \
+  --name etcd-master \
+  elcolio/etcd:latest \
+  -name etcd-master \
+  -discovery=https://discovery.etcd.io/20af46fef3aaaeb369c293d023f9d653 \
+  -advertise-client-urls http://10.100.97.46:4001 \
+  -initial-advertise-peer-urls http://10.100.97.46:7001
