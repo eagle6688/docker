@@ -1,6 +1,6 @@
 FROM alpine
 
-ADD run.sh /bin/run.sh
+COPY etcd-v3.3.0-rc.2-linux-amd64.tar.gz ./
 
 RUN apk add --update ca-certificates openssl tar \
     && tar -xzf etcd-v3.3.0-rc.2-linux-amd64.tar.gz -C /bin/ --strip-components=1 \
@@ -9,6 +9,6 @@ RUN apk add --update ca-certificates openssl tar \
 
 VOLUME /data
 
-EXPOSE 2379 2380 4001 7001
+EXPOSE 2379 2380
 
-ENTRYPOINT  ["/bin/run.sh"]
+ENTRYPOINT  ["/bin/etcd"]
