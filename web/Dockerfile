@@ -1,5 +1,4 @@
 FROM eagle6688/tomcat
-LABEL author=Aldwin
 
 ENV War_File=devutility.test.springmvc.war \
     Website_Root=/home/website/ \

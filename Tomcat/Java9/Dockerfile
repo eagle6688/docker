@@ -1,7 +1,6 @@
 FROM centos
-LABEL author=Aldwin
 
-ENV JDKFile="server-jre-8u152-linux-x64.tar.gz" \
+ENV JDKFile="serverjre-9.0.1_linux-x64_bin.tar.gz" \
     TomcatFile="apache-tomcat-9.0.2.tar.gz" \
     TomcatConfigFile="server.xml" \
     WebsitePath=/home/website \
